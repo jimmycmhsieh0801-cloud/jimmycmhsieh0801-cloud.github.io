@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台灣實用生活計算機工具箱 | 免費電費試算・出國行動電源 Wh 換算</title>
+  <meta name="description" content="免費、無廣告干擾的台灣實用生活試算工具集合：包含 2026 台電累進電費與家電耗電試算、出國行動電源 Wh 登機換算與 GaN 快充頭配對。" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 16px 56px; }
+    header { text-align: center; margin-bottom: 32px; }
+    header h1 { font-size: 1.7rem; margin: 0 0 8px; }
+    header p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    .tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: var(--primary-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .card h2 { font-size: 1.15rem; margin: 0 0 8px; }
+    .card p { font-size: 0.9rem; color: var(--muted); margin: 0 0 16px; }
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .btn:hover { background: var(--primary-dark); }
+    footer { text-align: center; margin-top: 36px; font-size: 0.82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>台灣實用生活計算機工具箱</h1>
+      <p>專為台灣日常與旅遊設計的免費線上試算工具集，免註冊、打開即用</p>
+    </header>
+
+    <div class="grid">
+      <article class="card">
+        <div>
+          <span class="tag">居家省錢・台電 2026 新制</span>
+          <h2>台電電費級距試算 × 家電耗電計算機</h2>
+          <p>一秒試算夏月／非夏月 6 段累進電費、房東一度 5 元差額比較，以及除濕機、電暖器開一整天要多少錢。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-power-calc/">立即使用電費試算器 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">出國旅遊・航空飛安規範</span>
+          <h2>行動電源 Wh 登機換算 × GaN 快充配對</h2>
+          <p>換算 mAh 是否超過 100Wh 航空上限，整合華航、長榮、星宇、虎航機上禁用規範，並試算出國該帶幾瓦快充頭。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-travel-power-calc/">立即檢查行動電源 Wh →</a>
+      </article>
+    </div>
+
+    <footer>
+      <p>© 2026 台灣實用生活計算機工具箱 | 持續新增更多實用試算工具中</p>
+    </footer>
+  </div>
+</body>
+</html>
