@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>台灣實用生活計算機工具箱 | 免費電費試算・出國行動電源 Wh 換算</title>
-  <meta name="description" content="免費、無廣告干擾的台灣實用生活試算工具集合：包含 2026 台電累進電費與家電耗電試算、出國行動電源 Wh 登機換算與 GaN 快充頭配對。" />
+  <title>台灣實用生活計算機工具箱 | 10 大免費線上試算工具</title>
+  <meta name="description" content="免費、無廣告干擾的台灣實用生活試算工具集合：包含台電電費試算、出國行動電源 Wh 換算、冷氣坪數、汽機車稅費、電熱水器、日韓退稅、BMI/TDEE、寵物熱量、嬰兒奶量尿布、家庭網路 Mesh 計算。" />
   <style>
     :root {
       --bg: #f8fafc;
@@ -23,9 +23,9 @@
       color: var(--text);
       line-height: 1.6;
     }
-    .container { max-width: 880px; margin: 0 auto; padding: 32px 16px 56px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 32px 16px 56px; }
     header { text-align: center; margin-bottom: 32px; }
-    header h1 { font-size: 1.7rem; margin: 0 0 8px; }
+    header h1 { font-size: 1.75rem; margin: 0 0 8px; }
     header p { margin: 0; color: var(--muted); font-size: 0.96rem; }
     .grid {
       display: grid;
@@ -52,8 +52,8 @@
       border-radius: 999px;
       margin-bottom: 10px;
     }
-    .card h2 { font-size: 1.15rem; margin: 0 0 8px; }
-    .card p { font-size: 0.9rem; color: var(--muted); margin: 0 0 16px; }
+    .card h2 { font-size: 1.1rem; margin: 0 0 8px; }
+    .card p { font-size: 0.88rem; color: var(--muted); margin: 0 0 16px; }
     .btn {
       display: block;
       text-align: center;
@@ -63,7 +63,7 @@
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .btn:hover { background: var(--primary-dark); }
     footer { text-align: center; margin-top: 36px; font-size: 0.82rem; color: var(--muted); }
@@ -73,26 +73,98 @@
   <div class="container">
     <header>
       <h1>台灣實用生活計算機工具箱</h1>
-      <p>專為台灣日常與旅遊設計的免費線上試算工具集，免註冊、打開即用</p>
+      <p>專為台灣日常、居家、旅遊與親子設計的免費線上試算工具集（目前共 10 站）</p>
     </header>
 
     <div class="grid">
       <article class="card">
         <div>
-          <span class="tag">居家省錢・台電 2026 新制</span>
-          <h2>台電電費級距試算 × 家電耗電計算機</h2>
-          <p>一秒試算夏月／非夏月 6 段累進電費、房東一度 5 元差額比較，以及除濕機、電暖器開一整天要多少錢。</p>
+          <span class="tag">居家省錢・台電 2026</span>
+          <h2>台電電費級距 × 家電耗電計算機</h2>
+          <p>一秒試算夏月／非夏月 6 段累進電費、房東一度 5 元差額比較，以及除濕機電暖器每日電費。</p>
         </div>
-        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-power-calc/">立即使用電費試算器 →</a>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-power-calc/">立即試算 →</a>
       </article>
 
       <article class="card">
         <div>
-          <span class="tag">出國旅遊・航空飛安規範</span>
-          <h2>行動電源 Wh 登機換算 × GaN 快充配對</h2>
-          <p>換算 mAh 是否超過 100Wh 航空上限，整合華航、長榮、星宇、虎航機上禁用規範，並試算出國該帶幾瓦快充頭。</p>
+          <span class="tag">出國旅遊・飛安新規</span>
+          <h2>行動電源 Wh 登機 × GaN 快充配對</h2>
+          <p>換算 mAh 是否超過 100Wh 上限，整合華航長榮星宇虎航機上禁用規範與多孔快充瓦數計算。</p>
         </div>
-        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-travel-power-calc/">立即檢查行動電源 Wh →</a>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-travel-power-calc/">立即檢查 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">居家空調・空間規劃</span>
+          <h2>房間坪數 × 冷氣噸數 & 除濕機公升數</h2>
+          <p>考慮西曬、頂樓與挑高加成，精算房間冷房能力 kW/BTU 與每日建議除濕力。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-room-sizing-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">車主必備・2026 稅費</span>
+          <h2>汽機車牌照稅 × 燃料費試算器</h2>
+          <p>依排氣量級距與電動車免稅規定，支援自用車、黃紅牌重機與買賣過戶按日分攤。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-vehicle-tax-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">租屋衛浴・節能比較</span>
+          <h2>儲熱式電熱水器 vs 瓦斯耗費計算</h2>
+          <p>實算洗澡人數與 24 小時保溫待機損失電費，算出加裝定時器能省多少錢。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-water-heater-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">日韓血拚・海外刷卡</span>
+          <h2>日韓旅遊匯率 × 退稅與刷卡實算</h2>
+          <p>秒算含稅除以 1.1 退稅價、是否達日本 5,000 日圓門檻與扣除 1.5% 手續費實付。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-travel-tax-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">健康減脂・飲食控制</span>
+          <h2>BMI × BMR × TDEE 減脂熱量計算</h2>
+          <p>自動算出每日總消耗熱量、減脂期安全赤字與每日建議蛋白質克數。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-bmi-tdee-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">毛孩照護・寵物營養</span>
+          <h2>貓狗每日喝水量 × 飼料克數計算</h2>
+          <p>依體重與結紮係數計算 RER/DER 每日總熱量、喝水目標與乾飼料克數。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-pet-cost-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">新手爸媽・育兒比價</span>
+          <h2>寶寶奶量計算 × 尿布單片比價器</h2>
+          <p>體重換算每日建議奶量與尿布尺寸，一秒算出箱購尿布平均一片幾塊錢。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-baby-calc/">立即試算 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag">光世代升級・家庭網路</span>
+          <h2>寬頻網速 × 網路線與 Mesh 顆數計算</h2>
+          <p>檢查該買 Cat6 還是 Cat6A 網路線、以及室內坪數與水泥隔間需要幾顆 Mesh。</p>
+        </div>
+        <a class="btn" href="https://jimmycmhsieh0801-cloud.github.io/tw-router-cable-calc/">立即試算 →</a>
       </article>
     </div>
 
