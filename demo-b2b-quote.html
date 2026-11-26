@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71C7MD759Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71C7MD759Q');
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a.cta-btn, a.btn, a.lead-cta');
+      if (a) {
+        gtag('event', 'outbound_monetize_click', {
+          link_url: a.href,
+          link_text: (a.textContent || '').trim()
+        });
+      }
+    });
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B 批發階梯報價單 × CSV 訂單彙整報表 Demo | 客製化接案實品展示</title>
+  <meta name="description" content="現場實測：免伺服器純瀏覽器運行的企業批發階梯報價單（含 PDF 列印）與電商 CSV 訂單彙整轉 Excel 報表工具 Demo。" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4296280593601685" crossorigin="anonymous"></script>
+  <style>
+    :root { --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#64748b; --border:#e2e8f0; --primary:#0284c7; --accent:#ea580c; --good:#059669; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    .container { max-width:980px; margin:0 auto; padding:24px 16px 56px; }
+    header { text-align:center; margin-bottom:24px; }
+    .badge { display:inline-block; background:#fff7ed; color:var(--accent); font-size:0.8rem; font-weight:700; padding:4px 12px; border-radius:999px; margin-bottom:8px; border:1px solid #fed7aa; }
+    h1 { font-size:1.6rem; margin:0 0 8px; }
+    header p { color:var(--muted); margin:0 auto; max-width:680px; font-size:0.94rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:20px; box-shadow:0 1px 3px rgba(15,23,42,0.04); }
+    h2 { font-size:1.2rem; margin:0 0 8px; color:var(--text); }
+    .sub { color:var(--muted); font-size:0.88rem; margin:0 0 14px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.9rem; }
+    th, td { padding:8px 10px; border-bottom:1px solid var(--border); text-align:left; }
+    th { background:#f8fafc; color:var(--muted); font-weight:600; }
+    input[type="text"], input[type="number"] { width:100%; padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:0.92rem; }
+    .btn-row { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0; align-items:center; }
+    .btn { display:inline-block; padding:9px 15px; border:none; border-radius:8px; background:var(--primary); color:#fff; font-weight:700; font-size:0.88rem; cursor:pointer; text-decoration:none; }
+    .btn-accent { background:var(--accent); }
+    .btn-good { background:var(--good); }
+    .btn-outline { background:#fff; color:var(--text); border:1px solid var(--border); }
+    .summary-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:12px; background:#f1f5f9; padding:14px; border-radius:10px; margin-top:12px; }
+    .metric { background:#fff; padding:10px 12px; border-radius:8px; border:1px solid var(--border); }
+    .metric .label { font-size:0.78rem; color:var(--muted); }
+    .metric .val { font-size:1.2rem; font-weight:800; margin-top:2px; }
+    .cta-banner { background:#e0f2fe; border:1px solid #7dd3fc; border-radius:12px; padding:18px; text-align:center; margin-top:24px; }
+    @media print {
+      .no-print, .cta-banner, footer, #csvSection { display:none !important; }
+      body { background:#fff; }
+      .card { border:none; box-shadow:none; padding:0; }
+    }
+    footer { text-align:center; font-size:0.84rem; color:var(--muted); margin-top:24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="no-print">
+      <div class="badge">方案 A ＋ 方案 B 現場互動成交樣品屋</div>
+      <h1>企業批發階梯報價單 × CSV 訂單彙整報表 Demo</h1>
+      <p>免伺服器、免月租費，純瀏覽器即可運作的商業自動化範例。您可以直接操作下方兩個實作工具，測試流暢度後再預約客製開發。</p>
+    </header>
+
+    <!-- Demo A: Wholesale Tiered Quote -->
+    <section class="card" id="quoteSection">
+      <h2>方案 A 實品：批發階梯報價單計算機（含 PDF 列印）</h2>
+      <p class="sub">規則範例：單品項訂購 50～99 件自動打 9 折、滿 100 件打 85 折；未稅滿 NT$ 10,000 免運費（未滿加收 NT$ 150），自動加計 5% 營業稅。</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34%;">商品名稱</th>
+            <th style="width:16%;">標準單價</th>
+            <th style="width:16%;">訂購數量</th>
+            <th style="width:14%;">階梯折數</th>
+            <th style="width:14%;">小計 (未稅)</th>
+            <th class="no-print" style="width:6%;">操作</th>
+          </tr>
+        </thead>
+        <tbody id="quoteBody"></tbody>
+      </table>
+
+      <div class="btn-row no-print">
+        <button type="button" class="btn btn-outline" id="addRowBtn">+ 新增商品列</button>
+        <button type="button" class="btn btn-good" onclick="window.print()">列印 / 另存 PDF 報價單</button>
+      </div>
+
+      <div class="summary-grid">
+        <div class="metric"><div class="label">未稅商品小計</div><div class="val" id="qSubEl">--</div></div>
+        <div class="metric"><div class="label">運費（滿萬免運）</div><div class="val" id="qShipEl">--</div></div>
+        <div class="metric"><div class="label">5% 營業稅</div><div class="val" id="qTaxEl">--</div></div>
+        <div class="metric"><div class="label">含稅應付總額</div><div class="val" style="color:#0284c7;" id="qTotalEl">--</div></div>
+      </div>
+    </section>
+
+    <!-- Demo B: CSV Order Aggregator -->
+    <section class="card" id="csvSection">
+      <h2>方案 B 實品：電商／批發訂單 CSV 一鍵彙整轉 Excel 報表</h2>
+      <p class="sub">痛點解法：不用再手動打開幾十個 Excel 檔複製貼上！上傳訂單 CSV 或點「載入範例訂單」，系統 0.1 秒自動算出各品項銷量與毛利並匯出 Excel 不亂碼報表。</p>
+
+      <div class="btn-row no-print">
+        <button type="button" class="btn" id="loadSampleBtn">1. 一鍵載入範例電商訂單明細</button>
+        <input type="file" id="csvFileInput" accept=".csv" />
+        <button type="button" class="btn btn-accent" id="exportCsvBtn" disabled>2. 匯出 UTF-8 BOM 彙整報表 (.csv)</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>商品品項</th>
+            <th>訂單筆數</th>
+            <th>總銷售數量</th>
+            <th>總營收 (NT$)</th>
+            <th>總毛利 (NT$)</th>
+            <th>平均毛利率</th>
+          </tr>
+        </thead>
+        <tbody id="csvSummaryBody">
+          <tr><td colspan="6" style="color:#64748b;text-align:center;">請點擊「一鍵載入範例電商訂單明細」或選擇本機 .csv 檔案</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="cta-banner no-print">
+      <div style="font-size:1.05rem;font-weight:700;color:#0c4a6e;margin-bottom:8px;">需要把貴公司的 Excel 報價單、運費規則或對帳報表做成這種專屬工具嗎？</div>
+      <div style="font-size:0.9rem;color:#334155;margin-bottom:12px;">方案 A（互動試算網頁）NT$ 1,800 起 / 3 天交付 ｜ 方案 B（Excel 轉網頁 / Python 自動化）NT$ 3,500 起</div>
+      <a class="btn btn-accent lead-cta" href="https://jimmycmhsieh0801-cloud.github.io/services.html#contact">立即前往查看報價方案與預約免費估價 →</a>
+    </div>
+
+    <footer class="no-print">
+      <p><a href="https://jimmycmhsieh0801-cloud.github.io/services.html">← 返回接案服務與報價說明</a> ｜ <a href="https://jimmycmhsieh0801-cloud.github.io/">🏠 回到 18 站工具總目錄</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // --- Demo A: Wholesale Tiered Quote ---
+    let quoteRows = [
+      { name: "高密度防撞包裝袋 (箱)", price: 450, qty: 60 },
+      { name: "熱感應物流標籤貼紙 (捲)", price: 120, qty: 120 }
+    ];
+
+    function getDiscount(qty) {
+      if (qty >= 100) return 0.85;
+      if (qty >= 50) return 0.90;
+      return 1.0;
+    }
+
+    function renderQuote() {
+      const tbody = document.getElementById("quoteBody");
+      let subtotal = 0;
+      tbody.innerHTML = quoteRows.map((r, idx) => {
+        const disc = getDiscount(r.qty);
+        const lineTotal = Math.round(r.price * r.qty * disc);
+        subtotal += lineTotal;
+        const discText = disc === 1 ? "原價" : `${Math.round(disc * 100)} 折`;
+        return `
+          <tr>
+            <td><input type="text" value="${r.name}" oninput="quoteRows[${idx}].name=this.value" /></td>
+            <td><input type="number" min="1" value="${r.price}" oninput="quoteRows[${idx}].price=Number(this.value)||0;renderQuote()" /></td>
+            <td><input type="number" min="1" value="${r.qty}" oninput="quoteRows[${idx}].qty=Number(this.value)||0;renderQuote()" /></td>
+            <td><strong>${discText}</strong></td>
+            <td>NT$ ${lineTotal.toLocaleString()}</td>
+            <td class="no-print"><button type="button" class="btn btn-outline" style="padding:4px 8px;" onclick="quoteRows.splice(${idx},1);renderQuote()">✕</button></td>
+          </tr>`;
+      }).join("");
+
+      const shipping = subtotal >= 10000 || subtotal === 0 ? 0 : 150;
+      const tax = Math.round((subtotal + shipping) * 0.05);
+      const total = subtotal + shipping + tax;
+      document.getElementById("qSubEl").textContent = `NT$ ${subtotal.toLocaleString()}`;
+      document.getElementById("qShipEl").textContent = shipping === 0 ? "免運費 (NT$ 0)" : `NT$ ${shipping}`;
+      document.getElementById("qTaxEl").textContent = `NT$ ${tax.toLocaleString()}`;
+      document.getElementById("qTotalEl").textContent = `NT$ ${total.toLocaleString()}`;
+    }
+
+    document.getElementById("addRowBtn").addEventListener("click", () => {
+      quoteRows.push({ name: "新商品項目", price: 200, qty: 50 });
+      renderQuote();
+    });
+    renderQuote();
+
+    // --- Demo B: CSV Order Aggregator ---
+    const SAMPLE_CSV = [
+      "訂單編號,商品品項,數量,單價,單位成本",
+      "ORD-001,Wi-Fi 智慧計電插座,3,399,210",
+      "ORD-002,PTC 陶瓷電暖器,1,1290,780",
+      "ORD-003,Wi-Fi 智慧計電插座,5,380,210",
+      "ORD-004,一級能效除濕機,1,5990,4300",
+      "ORD-005,PTC 陶瓷電暖器,2,1250,780",
+      "ORD-006,Wi-Fi 智慧計電插座,2,399,210"
+    ].join("\n");
+
+    let aggregatedRows = [];
+
+    function parseAndAggregate(csvText) {
+      const lines = csvText.trim().split(/\r?\n/).filter(Boolean);
+      const map = new Map();
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(",").map(s => s.trim());
+        if (cols.length < 5) continue;
+        const item = cols[1];
+        const qty = Number(cols[2]) || 0;
+        const price = Number(cols[3]) || 0;
+        const cost = Number(cols[4]) || 0;
+        const rev = qty * price;
+        const profit = qty * (price - cost);
+        if (!map.has(item)) map.set(item, { item, orders: 0, qty: 0, rev: 0, profit: 0 });
+        const cur = map.get(item);
+        cur.orders += 1;
+        cur.qty += qty;
+        cur.rev += rev;
+        cur.profit += profit;
+      }
+      aggregatedRows = [...map.values()].sort((a, b) => b.rev - a.rev);
+      const tbody = document.getElementById("csvSummaryBody");
+      tbody.innerHTML = aggregatedRows.map(r => {
+        const margin = r.rev > 0 ? ((r.profit / r.rev) * 100).toFixed(1) : "0.0";
+        return `
+          <tr>
+            <td><strong>${r.item}</strong></td>
+            <td>${r.orders}</td>
+            <td>${r.qty.toLocaleString()}</td>
+            <td>NT$ ${r.rev.toLocaleString()}</td>
+            <td style="color:#059669;font-weight:700;">NT$ ${r.profit.toLocaleString()}</td>
+            <td>${margin}%</td>
+          </tr>`;
+      }).join("");
+      document.getElementById("exportCsvBtn").disabled = aggregatedRows.length === 0;
+    }
+
+    document.getElementById("loadSampleBtn").addEventListener("click", () => parseAndAggregate(SAMPLE_CSV));
+    document.getElementById("csvFileInput").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => parseAndAggregate(ev.target.result);
+      reader.readAsText(file, "UTF-8");
+    });
+    document.getElementById("exportCsvBtn").addEventListener("click", () => {
+      if (!aggregatedRows.length) return;
+      const header = "商品品項,訂單筆數,總銷售數量,總營收,總毛利,平均毛利率(%)\n";
+      const body = aggregatedRows.map(r => {
+        const m = r.rev > 0 ? ((r.profit / r.rev) * 100).toFixed(1) : "0.0";
+        return `${r.item},${r.orders},${r.qty},${r.rev},${r.profit},${m}`;
+      }).join("\n");
+      const blob = new Blob(["\uFEFF" + header + body], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "orders_summary_report.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
