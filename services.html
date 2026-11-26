@@ -90,11 +90,12 @@
         <span class="tag" style="background:#059669;color:#fff;">📊 2026 上班族／存股族必備・一次買斷</span>
         <h2 style="margin:4px 0 6px;font-size:1.28rem;">2026 上班族報稅 × 高利活存拆單 × ETF 避健保 Excel 工具包</h2>
         <p style="margin:0 0 8px;font-size:0.9rem;color:#334155;">包含 <code>finance_2026_pack_v1.0.zip</code> 完整 2 檔：<code>2026_上班族報稅_高利活存_ETF記帳工具包.xlsx</code>（內建 3 個公式自動連動工作表：所得稅／勞退自提節稅試算、高利活存超額降息拆單表、ETF 配息二代健保 2 萬元門檻追蹤）＋ <code>README_使用手冊.txt</code>。</p>
+        <div style="margin:10px 0 12px;padding:10px 12px;background:#fff;border:1px solid #a7f3d0;border-radius:8px;font-size:0.84rem;color:#334155;"><div style="font-weight:700;margin-bottom:4px;color:#065f46;">📊 3 大工作表實算範例預覽表（公式自動計算）：</div><table style="width:100%;border-collapse:collapse;font-size:0.8rem;"><thead><tr style="background:#d1fae5;color:#065f46;"><th style="padding:4px 6px;text-align:left;">工作表模組</th><th style="padding:4px 6px;text-align:left;">實測情境輸入</th><th style="padding:4px 6px;text-align:right;">試算省錢 / 多領成效</th></tr></thead><tbody><tr><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">① 報稅＋勞退自提 6%</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">月薪 85,000（稅率 12%）自提 6%</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;text-align:right;color:#059669;font-weight:700;">年省所得稅 NT$ 7,344</td></tr><tr><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">② 高利活存拆單表</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">50 萬拆單（3.5% + 1.5%）vs 0.7%</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;text-align:right;color:#059669;font-weight:700;">年多領利息 NT$ 6,000</td></tr><tr><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">③ ETF 避二代健保追蹤</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;">單檔 20,000 改拆領 19,500 × 2</td><td style="padding:4px 6px;border-top:1px solid #a7f3d0;text-align:right;color:#059669;font-weight:700;">免扣 2.11% 省 NT$ 422+</td></tr></tbody></table></div>
         <div class="pack-price" style="color:#059669;"><span class="pack-old">原價 NT$ 599</span>早鳥直購價 NT$ 299</div>
       </div>
       <div style="min-width:220px;">
         <a class="btn btn-good digital-pack-cta" href="#contact" onclick="selectFinancePack()">NT$ 299 立即帶走理財工具包 →</a>
-        <div style="font-size:0.78rem;color:#065f46;text-align:center;margin-top:6px;">內建 3 表公式自動連動・離線 Excel 可直接編輯</div>
+        <div style="font-size:0.78rem;color:#065f46;text-align:center;margin-top:6px;">下單後當日寄出壓縮包與操作手冊・離線 Excel 可直接編輯</div>
       </div>
     </section>
 
@@ -178,9 +179,10 @@
 2. 聯絡稱呼 / 回覆 Email：
 3. 補充說明（若為客製化請簡述 Excel/爬蟲需求）：</textarea>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-        <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('quoteTpl').value);this.textContent='✓ 已複製購買／詢價模板！';">一鍵複製【購買 NT$ 399 工具包 / 客製詢價】模板</button>
-        <a class="btn btn-accent custom-service-cta" href="mailto:jimmycmhsieh0801@gmail.com?subject=%E8%B3%BC%E8%B2%B7NT%24399%E5%B7%A5%E5%85%B7%E5%8C%85%E6%88%96%E5%AE%A2%E8%A3%BD%E8%A9%A2%E5%83%B9" style="display:inline-block;">直接開啟 Email 寄出 →</a>
+        <button type="button" id="copyTplBtn" class="copy-btn" onclick="copyQuoteTemplate()">一鍵複製【購買／詢價】模板</button>
+        <a id="mailtoBtn" class="btn btn-accent custom-service-cta" href="mailto:jimmycmhsieh0801@gmail.com?subject=%E8%B3%BC%E8%B2%B7NT%24399%E5%B7%A5%E5%85%B7%E5%8C%85%E6%88%96%E5%AE%A2%E8%A3%BD%E8%A9%A2%E5%83%B9" style="display:inline-block;">直接開啟 Email 寄出 →</a>
       </div>
+      <div id="selectNotice" style="display:none;margin-top:8px;font-size:0.84rem;font-weight:700;color:#059669;"></div>
     </section>
 
     <footer>
@@ -188,14 +190,58 @@
     </footer>
   </div>
   <script>
+    function updateContactLinks(subject, bodyText, label) {
+      var tpl = document.getElementById('quoteTpl');
+      tpl.value = bodyText;
+      var mailBtn = document.getElementById('mailtoBtn');
+      if (mailBtn) {
+        mailBtn.href = 'mailto:jimmycmhsieh0801@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyText);
+      }
+      var notice = document.getElementById('selectNotice');
+      if (notice) {
+        notice.textContent = '✓ 已帶入「' + label + '」下單／詢價內容，請點下方一鍵複製或直接開啟 Email 寄出！';
+        notice.style.display = 'block';
+      }
+      var contactSec = document.getElementById('contact');
+      if (contactSec && contactSec.scrollIntoView) {
+        contactSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      tpl.style.transition = 'box-shadow 0.25s, border-color 0.25s';
+      tpl.style.borderColor = '#059669';
+      tpl.style.boxShadow = '0 0 0 3px rgba(5,150,105,0.25)';
+      setTimeout(function() {
+        tpl.style.borderColor = '';
+        tpl.style.boxShadow = '';
+      }, 1400);
+    }
+    function copyQuoteTemplate() {
+      var txt = document.getElementById('quoteTpl').value;
+      var btn = document.getElementById('copyTplBtn');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(function() {
+          btn.textContent = '✓ 已複製購買／詢價模板！';
+        }).catch(function() {
+          document.getElementById('quoteTpl').select();
+          document.execCommand('copy');
+          btn.textContent = '✓ 已複製購買／詢價模板！';
+        });
+      } else {
+        document.getElementById('quoteTpl').select();
+        document.execCommand('copy');
+        btn.textContent = '✓ 已複製購買／詢價模板！';
+      }
+    }
     function selectFinancePack() {
-      document.getElementById('quoteTpl').value = "【購買 NT$ 299 上班族報稅與理財 Excel 工具包】\n1. 購買項目：2026 上班族報稅 × 高利活存拆單 × ETF 避健保工具包 (NT$ 299)\n2. 我的收件 Email：\n3. 請提供匯款/超商代碼資訊與載點，謝謝！";
+      var body = "【購買 NT$ 299 上班族報稅與理財 Excel 工具包】\n1. 購買項目：2026 上班族報稅 × 高利活存拆單 × ETF 避健保工具包 (NT$ 299)\n2. 我的收件 Email：\n3. 請提供匯款/超商代碼資訊與載點，謝謝！";
+      updateContactLinks("購買 NT$299 上班族報稅理財 Excel 工具包", body, "NT$ 299 上班族報稅理財工具包");
     }
     function selectDigitalPack() {
-      document.getElementById('quoteTpl').value = "【購買 NT$ 399 電商對帳工具包】\n1. 購買項目：2026 蝦皮賣家自動對帳 × 12/11 新制毛利結算工具包 (NT$ 399)\n2. 我的收件 Email：\n3. 請提供匯款/超商代碼資訊與實測載點，謝謝！";
+      var body = "【購買 NT$ 399 電商對帳工具包】\n1. 購買項目：2026 蝦皮賣家自動對帳 × 12/11 新制毛利結算工具包 (NT$ 399)\n2. 我的收件 Email：\n3. 請提供匯款/超商代碼資訊與實測載點，謝謝！";
+      updateContactLinks("購買 NT$399 蝦皮賣家對帳工具包", body, "NT$ 399 蝦皮對帳工具包");
     }
     function selectCustom(planName) {
-      document.getElementById('quoteTpl').value = "【客製化工具 / 自動化腳本詢價】\n1. 預約方案：" + planName + "\n2. 想解決的問題簡述（Excel/報價/爬蟲）：\n3. 預計希望交付日期：\n4. 我的聯絡 Email：";
+      var body = "【客製化工具 / 自動化腳本詢價】\n1. 預約方案：" + planName + "\n2. 想解決的問題簡述（Excel/報價/爬蟲）：\n3. 預計希望交付日期：\n4. 我的聯絡 Email：";
+      updateContactLinks("客製化自動化接案詢價 - " + planName, body, planName);
     }
   </script>
 </body>
