@@ -121,6 +121,7 @@
       <div style="min-width:220px;">
         <a class="btn btn-accent digital-pack-cta" href="#contact" onclick="selectDigitalPack()">NT$ 399 立即帶走工具包 →</a>
         <div style="font-size:0.78rem;color:#7c2d12;text-align:center;margin-top:6px;">一次買斷 5 檔完整交付・下單後提供載點與付款資訊</div>
+        <div style="text-align:center;margin-top:6px;"><a href="https://jimmycmhsieh0801-cloud.github.io/tw-ecommerce-margin-calc/" target="_blank" style="font-size:0.8rem;color:#0369a1;font-weight:700;text-decoration:underline;">👉 先免費試用線上蝦皮計算機</a></div>
       </div>
     </section>
 
@@ -137,6 +138,7 @@
       <div style="min-width:220px;">
         <a class="btn btn-good digital-pack-cta" href="#contact" onclick="selectFinancePack()">NT$ 299 立即帶走理財工具包 →</a>
         <div style="font-size:0.78rem;color:#065f46;text-align:center;margin-top:6px;">下單後當日寄出壓縮包與操作手冊・離線 Excel 可直接編輯</div>
+        <div style="text-align:center;margin-top:6px;"><a href="https://jimmycmhsieh0801-cloud.github.io/tw-nhi-supplement-calc/" target="_blank" style="font-size:0.8rem;color:#065f46;font-weight:700;text-decoration:underline;">👉 先免費試用線上二代健保計算機</a></div>
       </div>
     </section>
 
@@ -237,6 +239,11 @@
     <section class="section-card" id="contact">
       <h2 style="margin:0 0 8px;font-size:1.2rem;">快速下單 / 免費估價（24 小時內回覆）</h2>
       <p style="margin:0 0 10px;font-size:0.9rem;color:var(--muted);">聯絡信箱：<strong>jimmycmhsieh0801@gmail.com</strong>（手機端不方便開寄信 App 時，點「一鍵複製」即可直接貼到 Email 或社群私訊發送）：</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+        <button type="button" onclick="selectFinancePack()" style="padding:6px 12px;border:1px solid #10b981;border-radius:8px;background:#ecfdf5;color:#065f46;font-weight:700;font-size:0.84rem;cursor:pointer;">選 NT$ 299 理財包</button>
+        <button type="button" onclick="selectDigitalPack()" style="padding:6px 12px;border:1px solid #fb923c;border-radius:8px;background:#fff7ed;color:#9a3412;font-weight:700;font-size:0.84rem;cursor:pointer;">選 NT$ 399 蝦皮包</button>
+        <button type="button" onclick="selectCustom('方案 A/B 客製自動化 (NT$ 1,800 起)')" style="padding:6px 12px;border:1px solid #94a3b8;border-radius:8px;background:#f8fafc;color:#334155;font-weight:700;font-size:0.84rem;cursor:pointer;">客製自動化詢價</button>
+      </div>
       <textarea id="quoteTpl" rows="5">【購買 NT$ 399 電商對帳工具包 / 客製詢價】
 1. 需求項目：購買 NT$ 399《2026 蝦皮賣家自動對帳工具包》（或改填客製需求）
 2. 聯絡稱呼 / 回覆 Email：
